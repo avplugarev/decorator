@@ -1,5 +1,5 @@
 import time
-
+#обертка
 def timer_wrapper(func):
     def func_wrapper(param):
         NUM_RUNS = 100000
@@ -13,9 +13,11 @@ def timer_wrapper(func):
         print("Выполнение заняло в среднем %.8f секунд" % avg_time)
         return func(param)
     return func_wrapper
+#базовое получение след числа фибаначи функция
 def fibanachi(elem_1, elem_2):
     return elem_1+elem_2
 
+#класс для таймера
 class timer_dec:
     def __init__(self, function):
         self.NUM_RUNS=100000
@@ -32,7 +34,7 @@ class timer_dec:
         print("Выполнение заняло в среднем %.8f секунд" % avg_time)
         return self.function(*args,**kwargs)
 
-
+#простой вариант
 @timer_wrapper
 def fibl(num):
     fibanachi_list=[1,2]
@@ -42,6 +44,7 @@ def fibl(num):
         fibanachi_list.append(elem_3)
     return fibanachi_list
 
+#более сложный вариант
 @timer_dec
 def fibl_2(num):
     fibanachi_list=[1,2]
@@ -51,9 +54,12 @@ def fibl_2(num):
         fibanachi_list.append(elem_3)
     return fibanachi_list
 
+#простой вариант
 fibl(4000)
 
+#более сложный вариант
 fibl_2(4000)
+
 
 
 
